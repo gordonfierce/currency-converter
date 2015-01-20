@@ -4,4 +4,7 @@ def convert(rates, value, from_string, to_string):
     if from_string == to_string:
         return value
     else:
-        pass
+        rate = [rate for rate in rates if rate[0] == from_string
+                 and rate[1] == to_string]
+        return rate[0][2] * value
+        

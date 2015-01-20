@@ -11,3 +11,6 @@ def test_convert_to_same():
 
 def test_convert_from_one_to_another():
     assert cur.convert(rates, 1, "USD", "EUR") == 0.86
+
+def test_convert_with_different_values():
+    assert cur.convert(rates, 10, "USD", "EUR") == 8.6

@@ -5,7 +5,7 @@ def convert(rates, value, from_string, to_string):
     if rate is None:
         pass
     else:
-        return round(rate * value , 2)
+        return round((rate * value), 2)
 
 
 def conversion_control_structure(rates, from_string, to_string):

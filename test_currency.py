@@ -20,4 +20,15 @@ def test_convert_with_different_values():
 def test_convert_both_ways():
     assert cur.convert(rates, 1, "EUR", "USD") == 1.16
 
-    
+
+def test_is_in_rates_forward():
+    assert cur.is_in_rates_forward("USD", "EUR")
+    assert cur.is_in_rates_forward("BTC", "USD")
+    assert not cur.is_in_rates_forward("USD", "BTC")
+    assert not cur.is_in_rates_forward("EUR", "USD")
+
+
+def test_is_in_rates_backward():
+    assert cur.is_in_rates_backward("EUR", "USD")
+    assert cur.is_in_rates_backward("USD", "BTC")
+    assert not curr.is_in_rates_backward("USD", "EUR")

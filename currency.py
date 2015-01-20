@@ -11,12 +11,22 @@ def convert(rates, value, from_string, to_string):
 def conversion_control_structure(rates, from_string, to_string):
     if from_string == to_string:
         return 1
-    elif is_in_rates_forward(rates, from_string, to_string):
-        return basic_convert(rates, from_string, to_string)
-    elif is_in_rates_backward(rates, from_string, to_string):
-        return 1 / basic_convert(rates, to_string, from_string)
+    elif is_in_rates_forward_or_backward(rates, from_string, to_string):
+        return convert_forward_or_backward(rates, from_string, to_string)
     else:
         pass
+
+
+def is_in_rates_forward_or_backward(rates, from_string, to_string):
+    return is_in_rates_forward(rates, from_string, to_string) or \
+        is_in_rates_backward(rates, from_string, to_string)
+
+
+def convert_forward_or_backward(rates, from_string, to_string):
+    if is_in_rates_forward(rates, from_string, to_string):
+        return basic_convert(rates, from_string, to_string)
+    else:
+        return 1 / basic_convert(rates, to_string, from_string)
 
 
 def is_in_rates_forward(rates, from_string, to_string):

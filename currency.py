@@ -4,7 +4,10 @@ def convert(rates, value, from_string, to_string):
     if from_string == to_string:
         return value
     else:
-        rate = [rate for rate in rates if rate[0] == from_string
-                 and rate[1] == to_string]
-        return rate[0][2] * value
-        
+        return basic_convert(rates, value, from_string, to_string)
+
+
+def basic_convert(rates, value, from_string, to_string):
+    rate = [rate for rate in rates if rate[0] == from_string
+            and rate[1] == to_string][0]
+    return rate[2] * value

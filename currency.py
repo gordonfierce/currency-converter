@@ -2,7 +2,10 @@ def convert(rates, value, from_string, to_string):
     """Given a list of conversion rates, calculate the value of one
     currency (specified in from_string) denominated in another (to_string)"""
     rate = conversion_control_structure(rates, from_string, to_string)
-    return rate * value
+    if rate is None:
+        pass
+    else:
+        return round(rate * value , 2)
 
 
 def conversion_control_structure(rates, from_string, to_string):
@@ -11,7 +14,9 @@ def conversion_control_structure(rates, from_string, to_string):
     elif is_in_rates_forward(rates, from_string, to_string):
         return basic_convert(rates, from_string, to_string)
     elif is_in_rates_backward(rates, from_string, to_string):
-        return 1/basic_convert(rates, from_string, to_string)
+        return 1 / basic_convert(rates, to_string, from_string)
+    else:
+        pass
 
 
 def is_in_rates_forward(rates, from_string, to_string):

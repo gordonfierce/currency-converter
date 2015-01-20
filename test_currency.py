@@ -32,3 +32,11 @@ def test_is_in_rates_backward():
     assert cur.is_in_rates_backward(rates, "EUR", "USD")
     assert cur.is_in_rates_backward(rates, "USD", "BTC")
     assert not cur.is_in_rates_backward(rates, "USD", "EUR")
+
+
+def test_many_tuples_both_ways():
+    rates = [("USD", "EUR", 0.86), ("BTC", "USD", 212.86), ("EUR", "GBP", 0.76)]
+    assert cur.convert(rates, 2, "USD", "BTC") == 0.01
+    assert cur.convert(rates, 4, "GBP", "EUR") == 5.26
+    assert cur.convert(rates, 4, "EUR", "GBP") == 3.04
+    assert cur.convert(rates, 5, "BTC", "USD") == 1064.3

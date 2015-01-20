@@ -22,13 +22,13 @@ def test_convert_both_ways():
 
 
 def test_is_in_rates_forward():
-    assert cur.is_in_rates_forward("USD", "EUR")
-    assert cur.is_in_rates_forward("BTC", "USD")
-    assert not cur.is_in_rates_forward("USD", "BTC")
-    assert not cur.is_in_rates_forward("EUR", "USD")
+    assert cur.is_in_rates_forward(rates, "USD", "EUR")
+    assert cur.is_in_rates_forward(rates, "BTC", "USD")
+    assert not cur.is_in_rates_forward(rates, "USD", "BTC")
+    assert not cur.is_in_rates_forward(rates, "EUR", "USD")
 
 
 def test_is_in_rates_backward():
-    assert cur.is_in_rates_backward("EUR", "USD")
-    assert cur.is_in_rates_backward("USD", "BTC")
-    assert not curr.is_in_rates_backward("USD", "EUR")
+    assert cur.is_in_rates_backward(rates, "EUR", "USD")
+    assert cur.is_in_rates_backward(rates, "USD", "BTC")
+    assert not cur.is_in_rates_backward(rates, "USD", "EUR")

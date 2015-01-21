@@ -2,75 +2,18 @@
 
 ## Description
 
-Create a set of functions to convert currency from one denomination to another.
+A set of functions to convert currency from one denomination to another.
 
-## Objectives
+To run, import currency and use the convert function with a list of conversion rates in the style:
 
-### Learning Objectives
+```py
+[("USD", "EUR", 0.86), ("USD", "BTC", 212.86)]
+```
 
-After completing this assignment, you should understand:
+Pass currency.convert the rates list, an initial value, the first currency code, and the currency code of the currency to convert to.
 
-* Test-driven development
 
-### Performance Objectives
-
-After completing this assignment, you should be able to:
-
-* Raise exceptions
-* Write detailed tests
-* Break down programming problems into smaller ones
-
-## Details
-
-### Deliverables
-
-* A Git repo called currency-converter containing at least:
-  * `README.md` file explaining how to run your project
-  * a `currency` module
-  * a `test_currency` set of tests
-
-### Requirements  
-
-* Passing unit tests
-* No PEP8 or Pyflakes warnings or errors
-* No functions longer than 7 lines of code
-* 100% test coverage
-
-## Normal Mode
-
-Use test-driven development to design a function called `convert`. Below is a list of all the things it should do. In order to complete this exercise, follow these directions:
-
-* For each requirement, write a test first, and then make the test pass, do not pass Go, do not collect $200.
-* Every time you finish a requirement, commit your code with a message describing the requirement.
-* Go through the requirements one-by-one. Do not skip around.
-
-### Steps:
-
-* Create a function called `convert` that takes a list called `rates`, a number called `value`, a string called `from`, and a string called `to`. Make sure than when you call `convert` with `from` and `to` being equal, the return value is the same as `value`.
-
-* `rates` list should be a list of tuples, with each tuple containing a currency code you can convert from, a currency code you can convert to, and a rate.
-
-  ```py
-  [("USD", "EUR", 0.74)]
-  ```
-
-  This means that each dollar is worth 0.74 euros.
-
-  `value` is the amount of currency, `from` is the current currency code, and `to` is the currency code you wish to convert to.
-
-  Given the above rates, make sure that converting 1 dollar into euros returns the following value: `0.74`.
-
-* Next, test that you can convert currency with a `value` that is not 1.
-* Next, test that converting 1 euro into dollars returns `1.35` (or an approximation).
-* Create a new list of rates with two or more tuples. Make sure you can convert both ways with each rate. For example, with these rates:
-
-  ```py
-  [("USD", "EUR", 0.74), ("EUR", "JPY", 145.949)]
-  ```
-
-  Make sure you can convert from USD to EUR, EUR to USD, EUR to JPY, and JPY to EUR.
-
-## Hard Mode
+## TODO
 
 In addition to the requirements from **Normal Mode**:
 

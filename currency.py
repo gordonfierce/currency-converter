@@ -20,8 +20,9 @@ def conversion_control_structure(rates, from_string, to_string):
 
 def is_in_rates_forward_or_backward(rates, from_string, to_string):
     """Determines if a conversion can be made in one step"""
-    return is_in_rates_forward(rates, from_string, to_string) or \
-        is_in_rates_backward(rates, from_string, to_string)
+    return is_in_rates_forward(rates, from_string, to_string) or is_in_rates_backward(
+        rates, from_string, to_string
+    )
 
 
 def convert_forward_or_backward(rates, from_string, to_string):
@@ -50,6 +51,7 @@ def is_in_rates_backward(rates, from_string, to_string):
 
 def basic_convert(rates, from_string, to_string):
     """Looks up a conversion rate between two strings we know are in rates"""
-    rate = [rate for rate in rates if rate[0] == from_string
-            and rate[1] == to_string][0]
+    rate = [rate for rate in rates if rate[0] == from_string and rate[1] == to_string][
+        0
+    ]
     return rate[2]
